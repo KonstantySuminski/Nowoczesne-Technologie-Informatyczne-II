@@ -1,0 +1,28 @@
+import sys
+
+def usage(program_name):
+    print(f"Uzycie: {program_name} <liczba1> <operacja> <liczba2>")
+    print("Dostepne operacje:")
+    print("\tadd")
+
+def main():
+   
+    if len(sys.argv) == 4:
+        try:
+            number1 = int(sys.argv[1])
+            operation = sys.argv[2]
+            number2 = int(sys.argv[3])
+
+            if operation == "add":
+                result = number1 + number2
+                print(f"{number1} + {number2} = {result}")
+                return # Kończymy działanie po sukcesie
+        except ValueError:
+            print("Blad: Liczby musza byc calkowite.")
+            return
+
+    
+    usage(sys.argv[0])
+
+if __name__ == "__main__":
+    main()
