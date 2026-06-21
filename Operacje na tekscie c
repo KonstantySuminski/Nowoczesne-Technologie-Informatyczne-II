@@ -1,0 +1,89 @@
+//Program przeprowadzający proste operacje na tekście wprowadzonym przez użytkownika:
+
+#include <iostream>
+#include <cstdio>
+
+
+
+// Zamienia wszystkie wielkie litery na małe
+void toLower(char *text) {
+    while (*text) {
+        if ('A' <= *text && *text <= 'Z') {
+            *text += ('a' - 'A');
+        }
+        text++;
+    }
+}
+
+// Zamienia wszystkie małe litery na wielkie
+void toUpper(char *text) {
+    while (*text) {
+        if ('a' <= *text && *text <= 'z') {
+            *text -= ('a' - 'A');
+        }
+        text++;
+    }
+}
+
+// Zlicza i zwraca długość tekstu
+int textSize(const char *text) {
+    int size = 0;
+    while (*(text + size)) {
+        size++;
+    }
+    return size;
+}
+
+// Usuwa znak nowej linii ('\n') dodawany przez funkcję fgets, która czyta również enter
+void removeNewline(char *text) {
+    int i = 0;
+    while (text[i]) {
+        if (text[i] == '\n') {
+            text[i] = '\0';
+            break;
+        }
+        i++;
+    }
+}
+
+
+
+// Główna funkcja programu, która korzysta z wcześniejszych procesów:
+
+
+int main() {
+    char text[80];
+
+    while (true) {
+        printf("Enter text: \n");
+
+        // Pobieramy tekst od użytkownika (maksymalnie 80 znaków)
+        fgets(text, 80, stdin);
+
+        // Czyścimy enter na końcu
+        removeNewline(text);
+
+        // Jeśli użytkownik wcisnął sam Enter (pusty string) → koniec programu
+        if (text[0] == '\0') {
+            break;
+        }
+
+        // Wyświetlamy oryginalny tekst
+        printf("Oryginal: %s\n", text);
+
+        // Zamieniamy na małe litery i wyświetlamy
+        toLower(text);
+        printf("Male: %s\n", text);
+
+        // Zamieniamy na wielkie litery i wyświetlamy
+        toUpper(text);
+        printf("Wielkie: %s\n", text);
+
+        // Wyświetlamy długość tekstu
+        printf("Dlugosc: %d znakow\n", textSize(text));
+
+        printf("----------\n\n");
+    }
+
+    return 0;
+}
