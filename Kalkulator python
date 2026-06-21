@@ -1,1 +1,17 @@
+# inicjujemy program:
+print("Simple calc")
 
+# Pętla while pozwala wyeliminować dzielenie przez 0
+# Wyciągamy liczby od użytkownika
+while True:
+    number1 = int(input("Enter first number: "))
+    number2 = int(input("Enter second number: "))
+
+    if number2 == 0:
+        break
+
+    # Gotowe dane preparujemy i wyświetlamy użytkownikowi:
+    print(f"{number1} + {number2} = {number1 + number2}")
+    print(f"{number1} - {number2} = {number1 - number2}")
+    print(f"{number1} * {number2} = {number1 * number2}")
+    print(f"{number1} / {number2} = {number1 // number2}")
