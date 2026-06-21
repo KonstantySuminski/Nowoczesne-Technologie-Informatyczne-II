@@ -1,0 +1,29 @@
+# Program przeprowadzający proste operacje na tekście wprowadzonym przez użytkownika:
+
+
+# Pobieramy tekst od użytkownika.
+while True:
+    text = input("Enter text: \n")
+
+# Jeśli użytkownik wcisnął sam Enter (pusty string) → koniec programu
+    if text == "":
+        break
+
+# Wyświetlamy oryginalny tekst
+    print(f"Oryginal: {text}")
+
+ # Zamieniamy na małe litery i wyświetlamy
+ # Używamy wbudowanej metody .lower()
+    text = text.lower()
+    print(f"Male: {text}")
+
+# Zamieniamy na wielkie litery i wyświetlamy
+# Używamy wbudowanej metody .upper()
+    text = text.upper()
+    print(f"Wielkie: {text}")
+
+# Wyświetlamy długość tekstu
+# Używamy wbudowanej funkcji len() (od "length")
+    print(f"Dlugosc: {len(text)} znakow")
+
+    print("\n")
